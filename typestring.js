@@ -18,15 +18,19 @@
     compiler.addFile(filename, snapshot);
 
     var iter = compiler.compile();
-    iter.moveNext();
+
+    var output = '';
+    while(iter.moveNext()) {
+      var current = iter.current().outputFiles[0];
+      output += !!current ? current.text : '';
+    }
 
     var diagnostics = compiler.getSemanticDiagnostics(filename);
-    if (diagnostics.length) {
+    if (!output && diagnostics.length) {
       throw new Error(diagnostics[0].text());
     }
 
-    var output = iter.current().outputFiles[0];
-    return !!output ? output.text : '';
+    return output;
   };
 
 })();
