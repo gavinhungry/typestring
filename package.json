@@ -2,9 +2,16 @@
   "name": "typestring",
   "version": "0.9.5",
   "author": "Gavin Lloyd <gavinhungry@gmail.com>",
-  "description": "String-to-string TypeScript compiler",
+  "description": "In-memory (string-in/string-out) TypeScript compiler",
   "license": "MIT",
-  "private": true,
+
+  "keywords": ["typescript", "tsc", "compiler"],
+  "homepage": "https://github.com/gavinhungry/typestring",
+  "repository": {
+    "type": "git", "url": "git://github.com/gavinhungry/typestring.git"
+  },
+
+  "files": ["typestring.js", "LICENSE", "README.md"],
   "main": "typestring.js",
 
   "dependencies": {
