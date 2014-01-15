@@ -15,6 +15,15 @@ Example
     var ts = require('typestring');
     ts.compile('class Foo { public bar = 2; }');
 
+Output string:
+
+    var Foo = (function () {
+        function Foo() {
+            this.bar = 2;
+        }
+        return Foo;
+    })();
+
 License
 -------
 `typestring` is released under the terms of the
