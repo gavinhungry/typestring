@@ -7,13 +7,13 @@ string-out) TypeScript compiler, utilizing
 Installation
 ------------
 
-  npm install typestring
+    npm install typestring
 
 Example
 -------
 
-  var ts = require('typestring');
-  ts.compile('class Foo { public bar = 2; }');
+    var ts = require('typestring');
+    ts.compile('class Foo { public bar = 2; }');
 
 License
 -------
