@@ -17,7 +17,6 @@
     it.moveNext();
 
     var output = it.current().outputFiles[0];
-
     return !!output ? output.text : null;
   };
 
