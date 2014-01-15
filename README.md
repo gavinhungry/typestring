@@ -1,7 +1,7 @@
 typestring
 ==========
 `typestring` is a simple Node module providing an in-memory (string-in and
-string-out) TypeScript compiler, utilizing
+string-out) TypeScript compiler, utilizing the exposed TypeScript API from
 [`typescript-api`](https://npmjs.org/package/typescript-api).
 
 Installation
