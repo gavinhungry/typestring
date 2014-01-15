@@ -1,0 +1,13 @@
+{
+  "name": "typestring",
+  "version": "0.9.5",
+  "author": "Gavin Lloyd <gavinhungry@gmail.com>",
+  "description": "String-to-string TypeScript compiler",
+  "license": "MIT",
+  "private": true,
+  "main": "typestring.js",
+
+  "dependencies": {
+    "typescript-api": "0.9.5"
+  }
+}
