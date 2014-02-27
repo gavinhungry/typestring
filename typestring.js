@@ -14,14 +14,15 @@ define(['typescript-api'], function (TypeScript) {
 
   var filename = 'typestring.ts';
 
-  /**
-   * Compile a string of TypeScript, return as a string of JavaScript
-   *
-   * @param {String} input - TypeScript to compile
-   * @return {String} JavaScript output
-   * @throws TypeScript compile error
-   */
   return {
+
+    /**
+     * Compile a string of TypeScript, return as a string of JavaScript
+     *
+     * @param {String} input - TypeScript to compile
+     * @return {String} JavaScript output
+     * @throws TypeScript compile error
+     */
     compile: function(input) {
       var compiler = new TypeScript.TypeScriptCompiler();
 
