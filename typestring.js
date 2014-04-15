@@ -12,7 +12,7 @@
 define(['typescript-api'], function (TypeScript) {
   'use strict';
 
-  var filename = 'typestring.ts';
+  var filename = '_typestring.ts';
 
   return {
 
@@ -20,11 +20,19 @@ define(['typescript-api'], function (TypeScript) {
      * Compile a string of TypeScript, return as a string of JavaScript
      *
      * @param {String} input - TypeScript to compile
+     * @param {Object} [refs] - map of referenced filenames to content
      * @return {String} JavaScript output
      * @throws TypeScript compile error
      */
-    compile: function(input) {
+    compile: function(input, refs) {
       var compiler = new TypeScript.TypeScriptCompiler();
+      refs = refs || {};
+
+      // replace references with script strings
+      var re = new RegExp(TypeScript.tripleSlashReferenceRegExp.source, 'gm');
+      input = input.replace(re, function(match, p1, p2, filename) {
+        return refs[filename] || match;
+      });
 
       var snapshot = TypeScript.ScriptSnapshot.fromString(input);
       compiler.addFile(filename, snapshot);
