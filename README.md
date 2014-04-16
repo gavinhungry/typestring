@@ -23,6 +23,15 @@ Output string:
         return Foo;
     })();
 
+### File references
+
+File references can be used, but the file contents must be passed to `compile`
+as strings:
+
+    ts.compile('/// <reference path="foo.ts" />', {
+      'foo.ts': 'class Foo { /* ... */ }'
+    });
+
 License
 -------
 `typestring` is released under the terms of the
