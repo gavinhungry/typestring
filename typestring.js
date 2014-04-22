@@ -45,9 +45,9 @@ define(['typescript-api'], function (TypeScript) {
         output += !!current ? current.text : '';
       }
 
-      var diagnostics = compiler.getSemanticDiagnostics(filename);
-      if (!output && diagnostics.length) {
-        throw new Error(diagnostics[0].text());
+      var diagnostics = compiler.getSyntacticDiagnostics(filename);
+      if (diagnostics.length) {
+        throw diagnostics;
       }
 
       return output;
