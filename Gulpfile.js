@@ -8,7 +8,7 @@
 
   gulp.task('clean', function() {
     return gulp.src([
-      './typestring.min.js',
+      './dist/',
     ], { read: false })
     .pipe(clean());
   });
@@ -17,7 +17,7 @@
   gulp.src('./typestring.js')
     .pipe(uglify({ preserveComments: function(s, n) { return !n.pos; } }))
     .pipe(rename(function(path) { path.basename += '.min'; }))
-    .pipe(gulp.dest('.'));
+    .pipe(gulp.dest('./dist'));
   });
 
 })();
