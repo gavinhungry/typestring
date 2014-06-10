@@ -24,9 +24,9 @@
   },
 
   "devDependencies": {
-    "gulp": "3.6.x",
-    "gulp-clean": "0.2.x",
-    "gulp-uglify": "0.2.x",
+    "gulp": "3.8.x",
+    "gulp-clean": "0.3.x",
+    "gulp-uglify": "0.3.x",
     "gulp-rename": "1.2.x"
   }
 }
