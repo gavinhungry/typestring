@@ -42,7 +42,7 @@ define(['typescript-api'], function (TypeScript) {
       var output = '';
       while(iter.moveNext()) {
         var current = iter.current().outputFiles[0];
-        output += !!current ? current.text : '';
+        output += current ? current.text : '';
       }
 
       var diagnostics = compiler.getSyntacticDiagnostics(filename);
