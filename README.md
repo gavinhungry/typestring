@@ -26,10 +26,10 @@ Output string:
 ### File references
 
 File references can be used, but the file contents must be passed to `compile`
-as strings:
+as strings or buffers:
 
     ts.compile('/// <reference path="foo.ts" />', {
-      'foo.ts': 'class Foo { /* ... */ }'
+      'foo.ts': fs.readFileSync('lib/foo.ts')
     });
 
 License
