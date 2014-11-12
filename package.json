@@ -1,6 +1,6 @@
 {
   "name": "typestring",
-  "version": "1.0.0-4",
+  "version": "1.0.0-5",
   "author": "Gavin Lloyd <gavinhungry@gmail.com>",
   "description": "In-memory (string-in/string-out) TypeScript compiler",
   "license": "MIT",
@@ -24,8 +24,8 @@
   },
 
   "devDependencies": {
+    "del": "0.1.x",
     "gulp": "3.8.x",
-    "gulp-clean": "0.3.x",
     "gulp-uglify": "0.3.x",
     "gulp-rename": "1.2.x"
   }

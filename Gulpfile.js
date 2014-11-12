@@ -1,16 +1,15 @@
 (function() {
   'use strict';
 
+  var del    = require('del');
   var gulp   = require('gulp');
-  var clean  = require('gulp-clean');
   var uglify = require('gulp-uglify');
   var rename = require('gulp-rename');
 
-  gulp.task('clean', function() {
-    return gulp.src([
+  gulp.task('clean', function(done) {
+    del([
       './dist/',
-    ], { read: false })
-    .pipe(clean());
+    ], done);
   });
 
   gulp.task('default', ['clean'], function() {
