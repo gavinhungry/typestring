@@ -6,9 +6,7 @@ string-out) TypeScript compiler.
 Installation
 ------------
 
-```
-npm install typestring
-```
+    $ npm install typestring
 
 Example
 -------
