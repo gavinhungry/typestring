@@ -6,31 +6,39 @@ string-out) TypeScript compiler.
 Installation
 ------------
 
-    npm install typestring
+```
+npm install typestring
+```
 
 Example
 -------
 
-    var ts = require('typestring');
-    ts.compile('class Foo { public bar = 2; }');
+```javascript
+var ts = require('typestring');
+ts.compile('class Foo { public bar = 2; }');
+```
 
 Output string:
 
-    var Foo = (function () {
-        function Foo() {
-            this.bar = 2;
-        }
-        return Foo;
-    })();
+```javascript
+var Foo = (function () {
+    function Foo() {
+        this.bar = 2;
+    }
+    return Foo;
+})();
+```
 
 ### File references
 
 File references can be used, but the file contents must be passed to `compile`
 as strings or buffers:
 
-    ts.compile('/// <reference path="foo.ts" />', {
-      'foo.ts': fs.readFileSync('lib/foo.ts')
-    });
+```javascript
+ts.compile('/// <reference path="foo.ts" />', {
+  'foo.ts': fs.readFileSync('lib/foo.ts')
+});
+```
 
 License
 -------
