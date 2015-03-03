@@ -29,7 +29,7 @@
     var js = ts.compile('class Foo { public bar = 2; }');
     t.equal(js, simpleClassJS, 'inline class outputs expected result');
 
-    var js = ts.compile('/// <reference path="foo.ts" />', {
+    js = ts.compile('/// <reference path="foo.ts" />', {
       'foo.ts': 'class Foo { public bar = 2; }'
     });
 
