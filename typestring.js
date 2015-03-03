@@ -9,10 +9,10 @@
   function(reqs, fn) { module.exports = fn.apply(null, reqs.map(require)); }
 }).
 
-define(['typescript-api'], function (TypeScript) {
+define(['typescript'], function (ts) {
   'use strict';
 
-  var filename = '_typestring.ts';
+  var _filename = '_typestring.ts';
 
   return {
 
@@ -21,34 +21,53 @@ define(['typescript-api'], function (TypeScript) {
      *
      * @param {String} input - TypeScript to compile
      * @param {Object} [refs] - map of referenced filenames to content
+     * @param {Object} [opts] - Options to TypeScript compiler
      * @return {String} JavaScript output
      * @throws TypeScript compile error
      */
-    compile: function(input, refs) {
-      var compiler = new TypeScript.TypeScriptCompiler();
+    compile: function(input, refs, opts) {
       refs = refs || {};
+      opts = opts || ts.getDefaultCompilerOptions();
 
       // replace references with script strings
-      var re = new RegExp(TypeScript.tripleSlashReferenceRegExp.source, 'gm');
+      var re = new RegExp(ts.fullTripleSlashReferencePathRegEx.source, 'gm');
       input = input.replace(re, function(match, p1, p2, filename) {
         return refs[filename] || match;
       });
 
-      var snapshot = TypeScript.ScriptSnapshot.fromString(input);
-      compiler.addFile(filename, snapshot);
+      var host = ts.createCompilerHost(opts);
 
-      var iter = compiler.compile();
+      // return our input if requested, otherwise use default host method
+      var getSourceFile = host.getSourceFile;
+      host.getSourceFile = function(filename) {
+        if (filename === _filename) {
+          return ts.createSourceFile(filename, input, opts.target, '0');
+        }
 
+        return getSourceFile.apply(this, arguments);
+      };
+
+      // append output to a string
       var output = '';
-      while(iter.moveNext()) {
-        var current = iter.current().outputFiles[0];
-        output += current ? current.text : '';
+      host.writeFile = function (filename, text) {
+        output += text;
+      };
+
+      var prog = ts.createProgram([_filename], opts, host);
+      var errs = prog.getDiagnostics();
+
+      if (errs.length) {
+        throw errs;
       }
 
-      var diagnostics = compiler.getSyntacticDiagnostics(filename);
-      if (diagnostics.length) {
-        throw diagnostics;
+      var checker = prog.getTypeChecker(true);
+      errs = checker.getDiagnostics();
+
+      if (errs.length) {
+        throw errs;
       }
+
+      checker.emitFiles();
 
       return output;
     }
