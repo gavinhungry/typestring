@@ -18,6 +18,9 @@
   },
 
   "main": "typestring.js",
+  "scripts": {
+    "test": "node test"
+  },
 
   "dependencies": {
     "typescript": "1.4.x"
@@ -27,6 +30,7 @@
     "del": "1.1.x",
     "gulp": "3.8.x",
     "gulp-uglify": "1.1.x",
-    "gulp-rename": "1.2.x"
+    "gulp-rename": "1.2.x",
+    "tap": "0.7.x"
   }
 }

@@ -26,6 +26,7 @@ define(['typescript'], function (ts) {
      * @throws TypeScript compile error
      */
     compile: function(input, refs, opts) {
+      input = input || '';
       refs = refs || {};
       opts = opts || ts.getDefaultCompilerOptions();
 
