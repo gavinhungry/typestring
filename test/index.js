@@ -8,7 +8,7 @@
 
   var fs  = require('fs');
   var tap = require('tap');
-  var ts  = require('typestring');
+  var ts  = require('../typestring');
 
   tap.test('no/undefined input results in an empty string', function(t) {
     var js = ts.compile();
