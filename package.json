@@ -1,6 +1,6 @@
 {
   "name": "typestring",
-  "version": "1.4.1-3",
+  "version": "1.5.3",
   "author": "Gavin Lloyd <gavinhungry@gmail.com>",
   "description": "In-memory (string-in/string-out) TypeScript compiler",
   "license": "MIT",
