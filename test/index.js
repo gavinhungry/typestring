@@ -38,4 +38,14 @@
     t.end();
   });
 
+  tap.test('invalid variable type throws semantic diagnostics error', function(t) {
+    t.throws(function() {
+      ts.compile('var str:String = false');
+    });
+
+    t.doesNotThrow(function() {
+      ts.compile('var str:Boolean = false');
+    });
+  });
+
 })();
