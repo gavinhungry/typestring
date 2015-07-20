@@ -26,7 +26,7 @@ define(['typescript'], function (ts) {
      * @throws TypeScript compile error
      */
     compile: function(input, refs, opts) {
-      input = input || '';
+      input = (typeof input === 'string') ? input : '';
       refs = refs || {};
       opts = opts || ts.getDefaultCompilerOptions();
 
@@ -55,20 +55,18 @@ define(['typescript'], function (ts) {
       };
 
       var prog = ts.createProgram([_filename], opts, host);
-      var errs = prog.getDiagnostics();
 
+      var errs = prog.getSyntacticDiagnostics();
       if (errs.length) {
         throw errs;
       }
 
-      var checker = prog.getTypeChecker(true);
-      errs = checker.getDiagnostics();
-
+      errs = prog.getSemanticDiagnostics();
       if (errs.length) {
         throw errs;
       }
 
-      checker.emitFiles();
+      prog.emit();
 
       return output;
     }

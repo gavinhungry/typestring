@@ -23,7 +23,7 @@
   },
 
   "dependencies": {
-    "typescript": "1.4.1"
+    "typescript": "1.5.3"
   },
 
   "devDependencies": {
