@@ -22,10 +22,11 @@ define(['typescript'], function (ts) {
      * @param {String} input - TypeScript to compile
      * @param {Object} [refs] - map of referenced filenames to content
      * @param {Object} [opts] - Options to TypeScript compiler
+     * @param {Boolean} [semantic] - if true, throw semantic errors
      * @return {String} JavaScript output
      * @throws TypeScript compile error
      */
-    compile: function(input, refs, opts) {
+    compile: function(input, refs, opts, semantic) {
       input = (typeof input === 'string') ? input : '';
       refs = refs || {};
       opts = opts || ts.getDefaultCompilerOptions();
@@ -61,9 +62,11 @@ define(['typescript'], function (ts) {
         throw errs;
       }
 
-      errs = prog.getSemanticDiagnostics();
-      if (errs.length) {
-        throw errs;
+      if (semantic) {
+        errs = prog.getSemanticDiagnostics();
+        if (errs.length) {
+          throw errs;
+        }
       }
 
       prog.emit();
