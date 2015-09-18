@@ -50,6 +50,8 @@
     t.doesNotThrow(function() {
       ts.compile('var str:Boolean = false', null, null, true);
     });
+
+    t.end();
   });
 
 })();
