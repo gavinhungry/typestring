@@ -9,7 +9,9 @@
   gulp.task('clean', function(done) {
     del([
       './dist/',
-    ], done);
+    ]).then(function() {
+      done();
+    });
   });
 
   gulp.task('default', ['clean'], function() {

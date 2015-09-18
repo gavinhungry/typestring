@@ -27,7 +27,7 @@
   },
 
   "devDependencies": {
-    "del": "1.2.x",
+    "del": "2.0.x",
     "gulp": "3.9.x",
     "gulp-uglify": "1.2.x",
     "gulp-rename": "1.2.x",
