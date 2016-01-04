@@ -23,14 +23,14 @@
   },
 
   "dependencies": {
-    "typescript": "1.7.3"
+    "typescript": "1.7.5"
   },
 
   "devDependencies": {
-    "del": "2.1.x",
+    "del": "2.2.x",
     "gulp": "3.9.x",
     "gulp-uglify": "1.5.x",
     "gulp-rename": "1.2.x",
-    "tap": "2.3.x"
+    "tap": "5.0.x"
   }
 }
