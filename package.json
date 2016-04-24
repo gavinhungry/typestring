@@ -31,6 +31,6 @@
     "gulp": "3.9.x",
     "gulp-uglify": "1.5.x",
     "gulp-rename": "1.2.x",
-    "tap": "5.0.x"
+    "tap": "5.7.x"
   }
 }
