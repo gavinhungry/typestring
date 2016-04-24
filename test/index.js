@@ -24,7 +24,7 @@
   });
 
   tap.test('simple module input results in correct output', function(t) {
-    var simpleClassJS = 'var Foo = (function () {\n    function Foo() {\n        this.bar = 2;\n    }\n    return Foo;\n})();\n';
+    var simpleClassJS = 'var Foo = (function () {\n    function Foo() {\n        this.bar = 2;\n    }\n    return Foo;\n}());\n';
 
     var js = ts.compile('class Foo { public bar = 2; }');
     t.equal(js, simpleClassJS, 'inline class outputs expected result');
