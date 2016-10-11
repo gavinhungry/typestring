@@ -2,7 +2,7 @@
   "name": "typestring",
   "version": "2.0.3",
   "author": "Gavin Lloyd <gavinhungry@gmail.com>",
-  "description": "In-memory (string-in/string-out) TypeScript compiler",
+  "description": "String-in, string-out TypeScript compiler front-end",
   "license": "MIT",
 
   "keywords": [

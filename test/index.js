@@ -1,5 +1,5 @@
 /**
- * typestring - In-memory TypeScript compiler
+ * typestring - String-in, string-out TypeScript compiler front-end
  * https://github.com/gavinhungry/typestring
  */
 

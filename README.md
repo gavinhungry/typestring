@@ -1,7 +1,7 @@
 typestring
 ==========
-`typestring` is a simple JavaScript module providing an in-memory (string-in and
-string-out) TypeScript compiler.
+`typestring` is a simple JavaScript module providing a string-in, string-out
+TypeScript compiler front-end.
 
 Installation
 ------------
