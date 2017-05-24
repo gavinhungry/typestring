@@ -1,5 +1,5 @@
 /**
- * typestring - Synchronous (string-in/out) TypeScript compiler front-end
+ * typestring - String-in/string-out TypeScript compiler front-end
  * https://github.com/gavinhungry/typestring
  */
 

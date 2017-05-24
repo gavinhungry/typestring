@@ -1,7 +1,6 @@
 typestring
 ==========
-`typestring` is a simple JavaScript module providing a string-in, string-out
-TypeScript compiler front-end.
+`typestring` is a string-in/string-out TypeScript compiler front-end.
 
 Installation
 ------------
@@ -12,8 +11,8 @@ Example
 -------
 
 ```javascript
-var ts = require('typestring');
-ts.compile('class Foo { public bar = 2; }');
+let typestring = require('typestring');
+let js = typestring.compile('class Foo { public bar = 2; }');
 ```
 
 Output string:
@@ -33,12 +32,11 @@ File references can be used, but the file contents must be passed to `compile`
 as strings or buffers:
 
 ```javascript
-ts.compile('/// <reference path="foo.ts" />', {
+typestring.compile('/// <reference path="foo.ts" />', {
   'foo.ts': fs.readFileSync('lib/foo.ts')
 });
 ```
 
 License
 -------
-`typestring` is released under the terms of the
-[MIT license](http://tldrlegal.com/license/mit-license). See **LICENSE**.
+This software is released under the terms of the **MIT license**. See `LICENSE`.
