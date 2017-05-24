@@ -1,6 +1,6 @@
 {
   "name": "typestring",
-  "version": "2.0.3-1",
+  "version": "2.3.3",
   "author": "Gavin Lloyd <gavinhungry@gmail.com>",
   "description": "String-in, string-out TypeScript compiler front-end",
   "license": "MIT",
