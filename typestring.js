@@ -14,7 +14,6 @@
   'use strict';
 
   const _filename = '_typestring.ts';
-  const defaultOpts = ts.getDefaultCompilerOptions();
 
   return {
     /**
@@ -28,7 +27,10 @@
      *
      * @throws TypeScript compile error
      */
-    compile: (input = '', refs = {}, opts = defaultOpts, semantic) => {
+    compile: (input = '', refs, opts, semantic) => {
+      refs = refs || {};
+      opts = opts || ts.getDefaultCompilerOptions();
+
       // replace references with script strings
       let re = new RegExp(ts.fullTripleSlashReferencePathRegEx.source, 'gm');
       input = input.replace(re, (m, p1, p2, filename) => refs[filename] || m);
