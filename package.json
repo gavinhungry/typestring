@@ -29,8 +29,7 @@
   "devDependencies": {
     "del": "2.2.x",
     "gulp": "3.9.x",
-    "gulp-uglify": "3.0.x",
-    "gulp-rename": "1.2.x",
+    "gulp-minify": "1.0.x",
     "tap": "10.3.x"
   }
 }
