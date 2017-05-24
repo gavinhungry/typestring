@@ -1,24 +1,22 @@
-(function() {
+(() => {
   'use strict';
 
-  var del    = require('del');
-  var gulp   = require('gulp');
-  var uglify = require('gulp-uglify');
-  var rename = require('gulp-rename');
+  let del = require('del');
+  let gulp = require('gulp');
+  let minify = require('gulp-minify');
 
-  gulp.task('clean', function(done) {
-    del([
-      './dist/',
-    ]).then(function() {
-      done();
-    });
+  gulp.task('clean', () => del(['./dist/']));
+
+  gulp.task('build', ['clean'], () => {
+    gulp.src('./typestring.js')
+      .pipe(minify({
+        ext: { min: '.min.js' },
+        noSource: true,
+        preserveComments: (s, n) => !n.pos,
+      }))
+      .pipe(gulp.dest('./dist'));
   });
 
-  gulp.task('default', ['clean'], function() {
-  gulp.src('./typestring.js')
-    .pipe(uglify({ preserveComments: function(s, n) { return !n.pos; } }))
-    .pipe(rename(function(path) { path.basename += '.min'; }))
-    .pipe(gulp.dest('./dist'));
-  });
+  gulp.task('default', ['build']);
 
 })();
