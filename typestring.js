@@ -3,10 +3,10 @@
  * https://github.com/gavinhungry/typestring
  */
 
-((global, mod, fn, _name = mod.name.toLowerCase()) => {
-  (typeof define === 'function' && define.amd) ? define(_name, mod.deps, fn) :
-  (typeof module === 'object') ? module.exports = fn(...mod.deps.map(require)) :
-  global[mod.name] = fn();
+((global, o, fn, _ = o.name.toLowerCase()) => {
+  return (typeof define === 'function' && define.amd) ? define(_, o.deps, fn) :
+  (typeof module === 'object') ? module.exports = fn(...o.deps.map(require)) :
+  global[o.name] = fn();
 })(this, {
   name: 'typestring',
   deps: ['typescript']
@@ -27,7 +27,8 @@
      *
      * @throws TypeScript compile error
      */
-    compile: (input = '', refs, opts, semantic) => {
+    compile: (input, refs, opts, semantic) => {
+      input = input || '';
       refs = refs || {};
       opts = opts || ts.getDefaultCompilerOptions();
 
