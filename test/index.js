@@ -24,13 +24,14 @@
   });
 
   tap.test('simple module input results in correct output', t => {
-    let simpleClassJS = 'var Foo = (function () {\n    function Foo() {\n        this.bar = 2;\n    }\n    return Foo;\n}());\n';
+    let simpleClassTS = 'class Foo { public bar = 2; }';
+    let simpleClassJS = 'var Foo = /** @class */ (function () {\n    function Foo() {\n        this.bar = 2;\n    }\n    return Foo;\n}());\n';
 
-    let js = ts.compile('class Foo { public bar = 2; }');
+    let js = ts.compile(simpleClassTS);
     t.equal(js, simpleClassJS, 'inline class outputs expected result');
 
     js = ts.compile('/// <reference path="foo.ts" />', {
-      'foo.ts': 'class Foo { public bar = 2; }'
+      'foo.ts': simpleClassTS
     });
 
     t.equal(js, simpleClassJS, 'reference path class outputs expected result');
