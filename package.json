@@ -23,13 +23,13 @@
   },
 
   "dependencies": {
-    "typescript": "2.5.3"
+    "typescript": "2.6.1"
   },
 
   "devDependencies": {
     "del": "3.0.x",
     "gulp": "3.9.x",
-    "gulp-minify": "1.0.x",
+    "gulp-minify": "2.1.x",
     "tap": "10.7.x"
   }
 }
