@@ -19,17 +19,16 @@
 
   "main": "typestring.js",
   "scripts": {
+    "build": "uglifyjs typestring.js --comments -cmo dist/typestring.min.js",
     "test": "node test"
   },
 
   "dependencies": {
-    "typescript": "2.6.1"
+    "typescript": "2.9.2"
   },
 
   "devDependencies": {
-    "del": "3.0.x",
-    "gulp": "3.9.x",
-    "gulp-minify": "2.1.x",
-    "tap": "10.7.x"
+    "uglify-es": "3.3.x",
+    "tap": "12.0.x"
   }
 }
